@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kayroone.github.io/yg.abbruch/sitemap.xml
