@@ -4,46 +4,37 @@ test.describe("AP-3: Leistungen-Sektion", () => {
   test("Hauptüberschrift ist sichtbar", async ({ page }) => {
     await page.goto("/");
     const services = page.locator("section#services");
-    await expect(services).toContainText(
-      "Ihr Profi für Abriss, Reparaturen & Renovierungen!",
-    );
+    await expect(services.locator("h2")).toBeVisible();
   });
 
-  test('Bereich "Abbruch & Entsorgung" mit 5 Punkten', async ({ page }) => {
+  test("Alle Leistungstexte sind vorhanden", async ({ page }) => {
     await page.goto("/");
     const services = page.locator("section#services");
-    await expect(services).toContainText("Abbruch & Entsorgung");
-    await expect(services).toContainText("Abriss & Entkernung von Gebäuden");
-    await expect(services).toContainText(
-      "Fachgerechte Entsorgung von Bauschutt & Materialien",
-    );
-    await expect(services).toContainText(
-      "Abriss kleinerer Gebäude und Anbauten",
-    );
-    await expect(services).toContainText(
-      "Trennwände einreißen & Rückbau für Sanierungen",
-    );
-    await expect(services).toContainText(
-      "Entrümpelungen von Grundstücken und Häusern",
-    );
+    await expect(services).toContainText("Abriss & Entkernung");
+    await expect(services).toContainText("Entsorgung");
+    await expect(services).toContainText("Rückbau");
+    await expect(services).toContainText("Entrümpelung");
+    await expect(services).toContainText("Reparatur");
+    await expect(services).toContainText("Renovierung");
   });
 
-  test('Bereich "Reparatur & Renovierung" mit 2 Punkten', async ({ page }) => {
+  test("Mindestens 5 Service-Karten vorhanden", async ({ page }) => {
     await page.goto("/");
-    const services = page.locator("section#services");
-    await expect(services).toContainText("Reparatur & Renovierung");
-    await expect(services).toContainText(
-      "Kleinere Reparaturen in Haus und Wohnung",
-    );
-    await expect(services).toContainText(
-      "Renovierungsarbeiten für Ihre Modernisierung",
-    );
+    const cards = page.locator("section#services .service-card");
+    const count = await cards.count();
+    expect(count).toBeGreaterThanOrEqual(5);
   });
 
-  test("Alle 7 Leistungspunkte sind einzelne Elemente", async ({ page }) => {
+  test("Jede Karte hat Icon, Titel und Beschreibung", async ({ page }) => {
     await page.goto("/");
-    const items = page.locator("section#services li");
-    await expect(items).toHaveCount(7);
+    const cards = page.locator("section#services .service-card");
+    const count = await cards.count();
+    for (let i = 0; i < count; i++) {
+      const card = cards.nth(i);
+      await expect(card.locator("svg")).toBeVisible();
+      await expect(card.locator("h3")).toBeVisible();
+      await expect(card.locator("p")).toBeVisible();
+    }
   });
 
   test("Layout auf Mobile und Desktop ohne Overflow", async ({ page }) => {
@@ -66,11 +57,9 @@ test.describe("AP-3: Leistungen-Sektion", () => {
     expect(bg).not.toBe("rgb(255, 255, 255)");
   });
 
-  test("Service-Kategorien haben Karten-Styling mit Schatten", async ({
-    page,
-  }) => {
+  test("Service-Karten haben Schatten", async ({ page }) => {
     await page.goto("/");
-    const card = page.locator(".service-category").first();
+    const card = page.locator(".service-card").first();
     const shadow = await card.evaluate((el) => getComputedStyle(el).boxShadow);
     expect(shadow).not.toBe("none");
   });

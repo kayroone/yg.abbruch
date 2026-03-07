@@ -10,7 +10,9 @@ test.describe("AP-1: HTML-Grundgerüst", () => {
     await page.goto("/");
     await expect(page.locator("header")).toBeVisible();
     await expect(page.locator("section#hero")).toBeVisible();
+    await expect(page.locator("section#why-us")).toBeVisible();
     await expect(page.locator("section#services")).toBeVisible();
+    await expect(page.locator("section#process")).toBeVisible();
     await expect(page.locator("section#contact")).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
   });

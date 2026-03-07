@@ -11,7 +11,7 @@ test.describe("Scroll-Animationen", () => {
   test("Elemente werden sichtbar nach Scroll", async ({ page }) => {
     await page.goto("/");
     await page.locator("section#services").scrollIntoViewIfNeeded();
-    const card = page.locator(".service-category.animate-on-scroll").first();
+    const card = page.locator(".service-card.animate-on-scroll").first();
     await expect(card).toHaveClass(/visible/);
   });
 

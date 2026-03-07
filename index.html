@@ -8,6 +8,9 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://kayroone.github.io/yg.abbruch/">
   <meta name="theme-color" content="#1B3254">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://www.openstreetmap.org">
 
   <!-- Open Graph -->
@@ -29,7 +32,7 @@
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
-  <noscript><style>.animate-on-scroll { opacity: 1 !important; transform: none !important; } .nav-toggle { display: none !important; } .nav-links { display: flex !important; position: static !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; gap: 1.5rem !important; flex-wrap: wrap; }</style></noscript>
+  <noscript><style>.animate-on-scroll { opacity: 1 !important; transform: none !important; } .nav-toggle { display: none !important; } .nav-links { display: flex !important; position: static !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; gap: 1.5rem !important; flex-wrap: wrap; } .hero-content { animation: none !important; }</style></noscript>
   <link rel="icon" href="assets/favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
@@ -86,40 +89,180 @@
         <a href="#contact">Kontakt</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
+        <a href="tel:+491636193240" class="nav-cta">Jetzt anfragen</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section id="hero" aria-label="Willkommen bei YG Team Abbruch">
-      <h1 class="visually-hidden">YG Team Abbruch – Abriss, Reparaturen & Renovierungen</h1>
-      <picture>
-        <source srcset="assets/logo.webp" type="image/webp">
-        <img src="assets/logo.png" alt="YG Team Abbruch – Raum Möglichkeiten Zukunft" width="1600" height="1600">
-      </picture>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>IHR PROFI FÜR ABRISS & RENOVIERUNG</h1>
+          <p>Fachgerecht. Zuverlässig. Fair. In Kalkar und am gesamten Niederrhein.</p>
+          <div class="hero-buttons">
+            <a href="tel:+491636193240" class="btn btn-primary">Jetzt anfragen</a>
+            <a href="#services" class="btn btn-outline">Unsere Leistungen</a>
+          </div>
+        </div>
+        <div class="hero-logo">
+          <picture>
+            <source srcset="assets/logo.webp" type="image/webp">
+            <img src="assets/logo.png" alt="YG Team Abbruch – Raum Möglichkeiten Zukunft" width="1600" height="1600">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <h2 class="animate-on-scroll">Warum YG Team Abbruch?</h2>
+      <div class="why-us-grid">
+        <div class="why-us-card animate-on-scroll">
+          <span class="section-icon why-us-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+              <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+              <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </span>
+          <h3>FACHGERECHTE ENTSORGUNG</h3>
+          <p>Umweltgerechte Trennung und Entsorgung aller Materialien nach aktuellen Vorschriften.</p>
+        </div>
+        <div class="why-us-card animate-on-scroll">
+          <span class="section-icon why-us-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </span>
+          <h3>ALLES AUS EINER HAND</h3>
+          <p>Von Abriss über Entkernung bis zur Entrümpelung – ein Ansprechpartner für Ihr Projekt.</p>
+        </div>
+        <div class="why-us-card animate-on-scroll">
+          <span class="section-icon why-us-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <h3>KOSTENLOSE BESICHTIGUNG</h3>
+          <p>Wir kommen zu Ihnen vor Ort und erstellen ein unverbindliches Angebot – kostenfrei.</p>
+        </div>
+      </div>
     </section>
 
     <section id="services">
-      <h2 class="animate-on-scroll">Ihr Profi für Abriss, Reparaturen & Renovierungen!</h2>
+      <h2 class="animate-on-scroll">Unsere Leistungen</h2>
 
       <div class="services-grid">
-        <div class="service-category animate-on-scroll">
-          <h3>Abbruch & Entsorgung</h3>
-          <ul>
-            <li>Abriss & Entkernung von Gebäuden</li>
-            <li>Fachgerechte Entsorgung von Bauschutt & Materialien</li>
-            <li>Abriss kleinerer Gebäude und Anbauten</li>
-            <li>Trennwände einreißen & Rückbau für Sanierungen</li>
-            <li>Entrümpelungen von Grundstücken und Häusern</li>
-          </ul>
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </span>
+          <h3>Abriss & Entkernung</h3>
+          <p>Kompletter Abriss und Entkernung von Gebäuden jeder Größe – professionell und termingerecht.</p>
         </div>
 
-        <div class="service-category animate-on-scroll">
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+            </svg>
+          </span>
+          <h3>Fachgerechte Entsorgung</h3>
+          <p>Umweltgerechte Entsorgung von Bauschutt & Materialien nach aktuellen Vorschriften.</p>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/>
+            </svg>
+          </span>
+          <h3>Kleingebäude-Abriss</h3>
+          <p>Abriss kleinerer Gebäude und Anbauten – von Garagen bis Schuppen.</p>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </span>
+          <h3>Rückbau & Sanierung</h3>
+          <p>Trennwände einreißen & Rückbau für Sanierungen – präzise und sauber.</p>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </span>
+          <h3>Entrümpelung</h3>
+          <p>Entrümpelungen von Grundstücken und Häusern – schnell und gründlich.</p>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+              <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/>
+            </svg>
+          </span>
           <h3>Reparatur & Renovierung</h3>
-          <ul>
-            <li>Kleinere Reparaturen in Haus und Wohnung</li>
-            <li>Renovierungsarbeiten für Ihre Modernisierung</li>
-          </ul>
+          <p>Kleinere Reparaturen und Renovierungsarbeiten für Ihre Modernisierung.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2 class="animate-on-scroll">So funktioniert's</h2>
+      <div class="process-steps">
+        <div class="process-step animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </span>
+          <h3>1. Anfrage stellen</h3>
+          <p>Rufen Sie uns an oder schreiben Sie uns – wir melden uns schnellstmöglich.</p>
+        </div>
+        <span class="process-arrow" aria-hidden="true">&rsaquo;</span>
+        <div class="process-step animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <h3>2. Vor-Ort-Besichtigung</h3>
+          <p>Wir kommen zu Ihnen und begutachten das Projekt vor Ort – kostenfrei.</p>
+        </div>
+        <span class="process-arrow" aria-hidden="true">&rsaquo;</span>
+        <div class="process-step animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </span>
+          <h3>3. Festpreis-Angebot</h3>
+          <p>Sie erhalten ein transparentes Angebot zum Festpreis – ohne versteckte Kosten.</p>
+        </div>
+        <span class="process-arrow" aria-hidden="true">&rsaquo;</span>
+        <div class="process-step animate-on-scroll">
+          <span class="section-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </span>
+          <h3>4. Umsetzung</h3>
+          <p>Wir führen die Arbeiten termingerecht und professionell durch.</p>
         </div>
       </div>
     </section>
@@ -182,13 +325,24 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <span class="footer-heading">YG Team Abbruch</span>
+        <span class="footer-heading">Leistungen</span>
+        <a href="#services">Abriss & Entkernung</a>
+        <a href="#services">Entsorgung</a>
+        <a href="#services">Rückbau & Sanierung</a>
+        <a href="#services">Entrümpelung</a>
+        <a href="#services">Reparatur & Renovierung</a>
+      </div>
+      <div class="footer-section">
+        <span class="footer-heading">Über uns</span>
+        <span>YG Team Abbruch – Ihr Partner für Abriss und Renovierung in Kalkar und am Niederrhein.</span>
         <span>&copy; 2026 Alle Rechte vorbehalten</span>
       </div>
       <div class="footer-section">
         <span class="footer-heading">Kontakt</span>
         <a href="tel:+491636193240">+49 163 6193240</a>
         <a href="mailto:yg-team.abbruch7@outlook.de">yg-team.abbruch7@outlook.de</a>
+        <span>Tiller Straße 30a, 47546 Kalkar</span>
+        <span>Mo–Sa: 07:00–18:00 Uhr</span>
       </div>
       <div class="footer-section">
         <span class="footer-heading">Rechtliches</span>
