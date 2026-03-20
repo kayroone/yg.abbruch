@@ -79,14 +79,33 @@ nav a:hover {
 }
 
 nav .nav-logo {
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 0.4rem 0;
-  border-bottom: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
 }
 
-nav .nav-logo:hover {
-  transform: scale(1.1);
+.nav-worker {
+  height: 48px;
+  width: auto;
+  animation: jackhammer 0.15s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+nav .nav-logo:hover .nav-worker {
+  animation-duration: 0.08s;
+}
+
+@keyframes jackhammer {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(0.5px) rotate(0.5deg);
+  }
 }
 
 .nav-cta {
@@ -721,5 +740,9 @@ a {
   a.contact-card:hover {
     transform: none;
     box-shadow: none;
+  }
+
+  .nav-worker {
+    animation: none;
   }
 }
