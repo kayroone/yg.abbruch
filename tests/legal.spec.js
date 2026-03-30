@@ -29,10 +29,15 @@ test.describe("AP-5: Impressum & Datenschutz", () => {
     await expect(main).toContainText("OpenStreetMap");
   });
 
-  test('Datenschutz: Hinweis "Keine Cookies" vorhanden', async ({ page }) => {
+  test("Datenschutz: Cookie-Hinweis und Tracking-Info vorhanden", async ({
+    page,
+  }) => {
     await page.goto("/datenschutz.html");
     const main = page.locator("main");
     await expect(main).toContainText("Cookies");
+    await expect(main).toContainText("Google Analytics");
+    await expect(main).toContainText("Meta Pixel");
+    await expect(main).toContainText("Einwilligung");
   });
 
   test("Beide Seiten haben Navigation zurück zur Startseite", async ({

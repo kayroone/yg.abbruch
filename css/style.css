@@ -8,6 +8,8 @@
   --color-secondary-light: #243f6b;
   --color-gray-light: #f5f5f5;
   --color-text-light: #555555;
+  --color-dark-start: #0a1628;
+  --color-dark-end: #234778;
   --font-stack:
     "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -54,6 +56,7 @@ header {
   background: var(--color-background);
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 nav {
@@ -203,8 +206,34 @@ nav .nav-logo:hover .nav-worker {
 
 /* === Hero === */
 #hero {
-  background-color: var(--color-background);
-  padding: 3rem 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-dark-start) 0%,
+    var(--color-secondary) 35%,
+    var(--color-dark-end) 100%
+  );
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: -5%;
+  right: -5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  transform: rotate(-3deg);
+  box-shadow:
+    0 0 15px rgba(184, 32, 36, 0.4),
+    0 0 30px rgba(184, 32, 36, 0.2);
 }
 
 .hero-content {
@@ -215,6 +244,8 @@ nav .nav-logo:hover .nav-worker {
   align-items: center;
   gap: 2rem;
   animation: fadeInUp 0.8s ease-out both;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text {
@@ -224,14 +255,14 @@ nav .nav-logo:hover .nav-worker {
 .hero-text h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-white);
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .hero-text p {
   font-size: 1.05rem;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1.5rem;
 }
 
@@ -260,14 +291,19 @@ nav .nav-logo:hover .nav-worker {
 }
 
 .btn-primary {
-  background: var(--color-secondary);
+  background: var(--color-primary);
   color: var(--color-white);
+  box-shadow: 0 0 20px rgba(184, 32, 36, 0.3);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
+  color: var(--color-white);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-white);
 }
 
 .hero-logo {
@@ -278,6 +314,8 @@ nav .nav-logo:hover .nav-worker {
 .hero-logo img {
   width: 100%;
   height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero load animation */
@@ -345,6 +383,17 @@ main section h2 {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+main section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
 }
 
 /* === Why Us === */
@@ -427,33 +476,101 @@ main section h2 {
   }
 }
 
-.service-card {
+/* Flip Cards */
+.flip-card {
+  perspective: 800px;
+  height: 180px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.flip-card-front {
   background: var(--color-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.flip-card-front h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-top: 0.5rem;
+}
+
+.flip-card-back {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  transform: rotateY(180deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.flip-card-back p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* CTA Card */
+.service-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 180px;
+  background: var(--color-primary);
+  color: var(--color-white);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-.service-card:hover {
+.service-cta:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(184, 32, 36, 0.3);
 }
 
-.service-card h3 {
+.service-cta-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.service-cta strong {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-secondary);
-  margin-bottom: 0.5rem;
 }
 
-.service-card p {
+.service-cta span {
   font-size: 0.85rem;
-  color: var(--color-text-light);
-  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* === Process === */
@@ -641,9 +758,14 @@ a.contact-card:hover {
 
 /* === Footer === */
 footer {
-  background: var(--color-secondary);
+  background: linear-gradient(
+    135deg,
+    var(--color-dark-start) 0%,
+    var(--color-secondary) 35%,
+    var(--color-dark-end) 100%
+  );
   color: var(--color-white);
-  border-top: 3px solid var(--color-primary);
+  border-top: 2px solid var(--color-primary);
 }
 
 .footer-content {
@@ -694,6 +816,69 @@ footer a:hover {
   opacity: 1;
 }
 
+/* === Cookie Banner === */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  padding: 1.25rem 1.5rem;
+  z-index: 200;
+  display: none;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-banner.visible {
+  display: block;
+}
+
+.cookie-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.cookie-banner p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cookie-banner a {
+  color: var(--color-white);
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.cookie-btn-outline:hover {
+  border-color: var(--color-white);
+}
+
+@media (min-width: 640px) {
+  .cookie-inner {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
 /* === Scroll Animations === */
 .animate-on-scroll {
   opacity: 0;
@@ -709,7 +894,10 @@ footer a:hover {
 }
 
 /* Staggered animation for cards in a grid */
-.services-grid .animate-on-scroll:nth-child(2) {
+.services-grid .animate-on-scroll:nth-child(2),
+.services-grid .animate-on-scroll:nth-child(5),
+.services-grid .animate-on-scroll:nth-child(8),
+.services-grid .animate-on-scroll:nth-child(11) {
   transition-delay: 0.15s;
 }
 
@@ -734,8 +922,13 @@ a {
     transition: none;
   }
 
+  .flip-card:hover .flip-card-inner,
+  .flip-card.flipped .flip-card-inner {
+    transform: none;
+  }
+
   .btn:hover,
-  .service-card:hover,
+  .service-cta:hover,
   .why-us-card:hover,
   a.contact-card:hover {
     transform: none;

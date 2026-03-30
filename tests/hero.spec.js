@@ -24,12 +24,13 @@ test.describe("AP-2: Hero-Sektion", () => {
     }
   });
 
-  test("Hero hat weissen Hintergrund", async ({ page }) => {
+  test("Hero hat dunklen Hintergrund", async ({ page }) => {
     await page.goto("/");
     const hero = page.locator("section#hero");
     const bg = await hero.evaluate(
-      (el) => getComputedStyle(el).backgroundColor,
+      (el) => getComputedStyle(el).backgroundImage,
     );
-    expect(bg).toBe("rgb(255, 255, 255)");
+    expect(bg).toContain("linear-gradient");
+    expect(bg).toContain("rgb(10, 22, 40)");
   });
 });

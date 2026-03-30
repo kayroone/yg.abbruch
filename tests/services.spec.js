@@ -18,23 +18,32 @@ test.describe("AP-3: Leistungen-Sektion", () => {
     await expect(services).toContainText("Renovierung");
   });
 
-  test("Mindestens 5 Service-Karten vorhanden", async ({ page }) => {
+  test("Mindestens 10 Flip-Cards vorhanden", async ({ page }) => {
     await page.goto("/");
-    const cards = page.locator("section#services .service-card");
+    const cards = page.locator("section#services .flip-card");
     const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(5);
+    expect(count).toBeGreaterThanOrEqual(10);
   });
 
-  test("Jede Karte hat Icon, Titel und Beschreibung", async ({ page }) => {
+  test("Jede Flip-Card hat Icon und Titel auf der Vorderseite", async ({
+    page,
+  }) => {
     await page.goto("/");
-    const cards = page.locator("section#services .service-card");
+    const cards = page.locator("section#services .flip-card");
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
-      const card = cards.nth(i);
-      await expect(card.locator("svg")).toBeVisible();
-      await expect(card.locator("h3")).toBeVisible();
-      await expect(card.locator("p")).toBeVisible();
+      const front = cards.nth(i).locator(".flip-card-front");
+      await expect(front.locator("svg")).toBeAttached();
+      await expect(front.locator("h3")).toBeAttached();
     }
+  });
+
+  test("CTA-Karte ist vorhanden und verlinkt zum Kontakt", async ({ page }) => {
+    await page.goto("/");
+    const cta = page.locator("section#services .service-cta");
+    await expect(cta).toBeAttached();
+    const href = await cta.getAttribute("href");
+    expect(href).toBe("#contact");
   });
 
   test("Layout auf Mobile und Desktop ohne Overflow", async ({ page }) => {
@@ -57,10 +66,10 @@ test.describe("AP-3: Leistungen-Sektion", () => {
     expect(bg).not.toBe("rgb(255, 255, 255)");
   });
 
-  test("Service-Karten haben Schatten", async ({ page }) => {
+  test("Flip-Card-Vorderseite hat Schatten", async ({ page }) => {
     await page.goto("/");
-    const card = page.locator(".service-card").first();
-    const shadow = await card.evaluate((el) => getComputedStyle(el).boxShadow);
+    const front = page.locator(".flip-card-front").first();
+    const shadow = await front.evaluate((el) => getComputedStyle(el).boxShadow);
     expect(shadow).not.toBe("none");
   });
 });
