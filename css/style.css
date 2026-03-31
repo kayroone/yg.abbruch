@@ -900,11 +900,8 @@ footer a:hover {
 }
 
 /* Staggered animation for cards in a grid */
-.services-grid .animate-on-scroll:nth-child(2),
-.services-grid .animate-on-scroll:nth-child(5),
-.services-grid .animate-on-scroll:nth-child(8),
-.services-grid .animate-on-scroll:nth-child(11) {
-  transition-delay: 0.15s;
+.services-grid .animate-on-scroll:nth-child(even) {
+  transition-delay: 0.1s;
 }
 
 .contact-info .animate-on-scroll:nth-child(2) {
