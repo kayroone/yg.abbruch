@@ -10,9 +10,9 @@ test.describe("Scroll-Animationen", () => {
 
   test("Elemente werden sichtbar nach Scroll", async ({ page }) => {
     await page.goto("/");
-    await page.locator("section#services").scrollIntoViewIfNeeded();
     const card = page.locator(".flip-card.animate-on-scroll").first();
-    await expect(card).toHaveClass(/visible/);
+    await card.scrollIntoViewIfNeeded();
+    await expect(card).toHaveClass(/visible/, { timeout: 5000 });
   });
 
   test("prefers-reduced-motion wird respektiert", async ({ page }) => {

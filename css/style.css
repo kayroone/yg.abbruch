@@ -476,6 +476,12 @@ main section h2::after {
   }
 }
 
+@media (min-width: 960px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 /* Flip Cards */
 .flip-card {
   perspective: 800px;
