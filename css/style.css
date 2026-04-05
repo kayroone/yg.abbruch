@@ -650,6 +650,10 @@ main section h2::after {
   .contact-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .contact-map {
+    grid-column: 1 / -1;
+  }
 }
 
 .contact-info {
@@ -700,6 +704,21 @@ a.contact-card:hover {
 
 .contact-card span:not(.contact-icon) {
   color: var(--color-primary);
+}
+
+.contact-portrait {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.contact-portrait img {
+  width: auto;
+  max-width: 100%;
+  max-height: 350px;
+  display: block;
+  border-radius: 12px;
+  margin: 0 auto;
 }
 
 .contact-map {
