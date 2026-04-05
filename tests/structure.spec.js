@@ -134,7 +134,7 @@ test.describe("AP-1: HTML-Grundgerüst", () => {
     await expect(footer).toContainText("2026");
     await expect(footer.locator('a[href="tel:+491636193240"]')).toBeVisible();
     await expect(
-      footer.locator('a[href="mailto:yg-team.abbruch7@outlook.de"]'),
+      footer.locator('a[href="mailto:kontakt@yg-abbruch.de"]'),
     ).toBeVisible();
     await expect(footer.locator('a[href="impressum.html"]')).toBeVisible();
     await expect(footer.locator('a[href="datenschutz.html"]')).toBeVisible();

@@ -16,12 +16,10 @@ test.describe("AP-4: Kontakt-Sektion", () => {
     await expect(telLink).toContainText("+49 163 6193240");
   });
 
-  test('E-Mail "yg-team.abbruch7@outlook.de" ist sichtbar', async ({
-    page,
-  }) => {
+  test('E-Mail "kontakt@yg-abbruch.de" ist sichtbar', async ({ page }) => {
     await page.goto("/");
     const contact = page.locator("section#contact");
-    await expect(contact).toContainText("yg-team.abbruch7@outlook.de");
+    await expect(contact).toContainText("kontakt@yg-abbruch.de");
   });
 
   test("E-Mail ist als mailto:-Link klickbar", async ({ page }) => {
@@ -31,9 +29,9 @@ test.describe("AP-4: Kontakt-Sektion", () => {
     await expect(mailLink).toBeVisible();
     await expect(mailLink).toHaveAttribute(
       "href",
-      "mailto:yg-team.abbruch7@outlook.de",
+      "mailto:kontakt@yg-abbruch.de",
     );
-    await expect(mailLink).toContainText("yg-team.abbruch7@outlook.de");
+    await expect(mailLink).toContainText("kontakt@yg-abbruch.de");
   });
 
   test("Adresse-Platzhalter ist vorhanden", async ({ page }) => {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kayroone.github.io/yg.abbruch/sitemap.xml
+Sitemap: https://yg-abbruch.de/sitemap.xml
