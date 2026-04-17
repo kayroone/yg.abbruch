@@ -11,20 +11,19 @@ test.describe("AP-3: Leistungen-Sektion", () => {
     await page.goto("/");
     const services = page.locator("section#services");
     await expect(services).toContainText("Abriss & Entkernung");
-    await expect(services).toContainText("Entsorgung");
-    await expect(services).toContainText("Rückbau");
-    await expect(services).toContainText("Dachreparaturen");
-    await expect(services).toContainText("Solarmodulmontage");
-    await expect(services).toContainText("Streichen & Tapezieren");
-    await expect(services).toContainText("Sanitärhilfsarbeiten");
-    await expect(services).toContainText("Elektrohilfsarbeiten");
+    await expect(services).toContainText("Kleingebäude-Abriss");
+    await expect(services).toContainText("Rückbau & Sanierung");
+    await expect(services).toContainText("Fachgerechte Entsorgung");
+    await expect(services).toContainText("Beratung & Begutachtung");
+    await expect(services).toContainText("Bodenbeläge verlegen");
+    await expect(services).toContainText("Trockenbau & Leichtbau");
+    await expect(services).toContainText("Renovierungsreinigung");
   });
 
-  test("Mindestens 22 Flip-Cards vorhanden", async ({ page }) => {
+  test("Genau 8 Flip-Cards vorhanden", async ({ page }) => {
     await page.goto("/");
     const cards = page.locator("section#services .flip-card");
-    const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(22);
+    await expect(cards).toHaveCount(8);
   });
 
   test("Jede Flip-Card hat Icon und Titel auf der Vorderseite", async ({
