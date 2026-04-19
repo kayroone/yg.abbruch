@@ -18,7 +18,7 @@ npm run serve
 ## Tests
 
 ```bash
-npm test                              # Alle 54 Playwright E2E Tests
+npm test                              # Alle 76 Playwright E2E Tests
 npx playwright test tests/hero.spec.js  # Einzelne Testdatei
 ```
 
