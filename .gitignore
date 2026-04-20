@@ -16,6 +16,9 @@ CLAUDE.md
 # docs (lokale Screenshots/Previews)
 docs/
 
+# lokale Notizen / Arbeitslisten
+js/info.txt
+
 # OS
 .DS_Store
 
