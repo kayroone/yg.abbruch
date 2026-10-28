@@ -21,14 +21,6 @@ test.describe("AP-5: Impressum & Datenschutz", () => {
     await expect(page.locator("h1")).toContainText("Datenschutzerklärung");
   });
 
-  test("Datenschutz: Abschnitt über OpenStreetMap vorhanden", async ({
-    page,
-  }) => {
-    await page.goto("/datenschutz.html");
-    const main = page.locator("main");
-    await expect(main).toContainText("OpenStreetMap");
-  });
-
   test("Datenschutz: Cookie-Hinweis und Tracking-Info vorhanden", async ({
     page,
   }) => {

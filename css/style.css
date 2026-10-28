@@ -650,10 +650,6 @@ main section h2::after {
   .contact-grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .contact-map {
-    grid-column: 1 / -1;
-  }
 }
 
 .contact-info {
@@ -719,19 +715,6 @@ a.contact-card:hover {
   display: block;
   border-radius: 12px;
   margin: 0 auto;
-}
-
-.contact-map {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.contact-map iframe {
-  border: 0;
-  width: 100%;
-  min-height: 250px;
-  display: block;
 }
 
 /* === Legal Pages === */

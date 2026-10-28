@@ -101,15 +101,14 @@ test.describe("AP-7: Owner Portrait", () => {
     expect(box.width).toBeLessThanOrEqual(1280);
   });
 
-  test("Contact-Grid hat genau 3 direkte Kinder", async ({ page }) => {
+  test("Contact-Grid hat genau 2 direkte Kinder", async ({ page }) => {
     await page.goto("/");
     const children = page.locator(".contact-grid > *");
-    await expect(children).toHaveCount(3);
+    await expect(children).toHaveCount(2);
     await expect(page.locator(".contact-grid > .contact-info")).toHaveCount(1);
     await expect(page.locator(".contact-grid > .contact-portrait")).toHaveCount(
       1,
     );
-    await expect(page.locator(".contact-grid > .contact-map")).toHaveCount(1);
   });
 
   test("Portrait-Container hat animate-on-scroll Klasse", async ({ page }) => {

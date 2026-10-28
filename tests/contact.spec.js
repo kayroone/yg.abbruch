@@ -34,17 +34,16 @@ test.describe("AP-4: Kontakt-Sektion", () => {
     await expect(mailLink).toContainText("kontakt@yg-abbruch.de");
   });
 
-  test("Adresse-Platzhalter ist vorhanden", async ({ page }) => {
+  test("Keine Adresse in der Kontakt-Sektion", async ({ page }) => {
     await page.goto("/");
     const contact = page.locator("section#contact");
-    await expect(contact).toContainText("Adresse");
+    await expect(contact).not.toContainText("Tiller");
+    await expect(contact).not.toContainText("Adresse");
   });
 
-  test("OpenStreetMap iframe ist eingebettet", async ({ page }) => {
+  test("Keine Karte eingebettet", async ({ page }) => {
     await page.goto("/");
-    const contact = page.locator("section#contact");
-    const iframe = contact.locator("iframe");
-    await expect(iframe).toHaveCount(1);
+    await expect(page.locator("iframe")).toHaveCount(0);
   });
 
   test("Layout auf Mobile und Desktop ohne Overflow", async ({ page }) => {
@@ -62,23 +61,5 @@ test.describe("AP-4: Kontakt-Sektion", () => {
     const card = page.locator(".contact-card").first();
     const shadow = await card.evaluate((el) => getComputedStyle(el).boxShadow);
     expect(shadow).not.toBe("none");
-  });
-
-  test("OSM-Karte hat abgerundete Ecken", async ({ page }) => {
-    await page.goto("/");
-    const map = page.locator(".contact-map");
-    const radius = await map.evaluate(
-      (el) => getComputedStyle(el).borderRadius,
-    );
-    expect(radius).not.toBe("0px");
-  });
-
-  test("OSM-Karte iframe hat title-Attribut fuer Accessibility", async ({
-    page,
-  }) => {
-    await page.goto("/");
-    const iframe = page.locator(".contact-map iframe");
-    const title = await iframe.getAttribute("title");
-    expect(title).toBeTruthy();
   });
 });
